@@ -1,0 +1,78 @@
+body {
+  font-family: 'Helvetica Neue';
+  color: rgba(74,73,74,0.69);
+}
+
+.header {
+  background: rgba(215,215,215,0.2);
+  height: 12vh;
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  margin-bottom: 5vh;
+  border-bottom: 1px solid rgba(215,215,215,0.8);
+}
+
+.day {
+  font-weight: bold;
+}
+
+.month {
+  font-size: 18px;
+  display: block;
+}
+
+.date {
+  display: inline-block;
+  margin-top: 3.5vh;
+}
+
+.hour {
+  font-size: 42px;
+}
+
+.spacer {
+  height: 5vh;
+}
+
+.spacer > hr {
+  margin-top: 5vh;
+  width: 50%;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  opacity: 0.2;
+}
+
+section {
+  text-align: center;
+  height: 34vh;
+}
+
+
+.sun {
+  margin-left: auto;
+  margin-right: auto;
+  width: 129px;
+  height: 129px;
+  border-radius: 50%;
+  margin-bottom: 50px;
+}
+
+.sunrise {
+  background-image: linear-gradient(-180deg, #FAD961 50%, #F76B1C 100%);
+  border: 1px solid #F5A623;
+}
+
+.sunset {
+  transform: rotate(180deg);
+  background-image: linear-gradient(-180deg, #FAD961 0%, #F76B1C 50%);
+  border: 1px solid #F5A623;
+}
+
+.settings {
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  font-size: 36px;
+  opacity: 0.5;
+}
