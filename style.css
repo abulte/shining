@@ -3,12 +3,6 @@ body {
   color: rgba(74,73,74,0.69);
 }
 
-#loader {
-  margin-top: 35vh;
-  width: 100%;
-  text-align: center;
-}
-
 .header {
   background: rgba(215,215,215,0.2);
   height: 12vh;
@@ -17,6 +11,20 @@ body {
   font-size: 24px;
   margin-bottom: 5vh;
   border-bottom: 1px solid rgba(215,215,215,0.8);
+}
+
+.plus, .minus {
+  margin-top: 4vh;
+}
+
+.plus {
+  float: right;
+  margin-right: 10px;
+}
+
+.minus {
+  float: left;
+  margin-left: 10px;
 }
 
 #dayName {

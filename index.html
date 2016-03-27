@@ -4,6 +4,7 @@
   <title>The Shining</title>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="spinner.css">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Intl.~locale.fr-FR"></script>
@@ -11,17 +12,21 @@
 </head>
 <body>
   <div class="header">
+    <i class="ion-minus minus" onclick="minus()"></i>
     <div class="date">
       <span id="dayName"></span> <span id="day"></span> <span id="month">mars</span>
     </div>
+    <i class="ion-plus plus" onclick="plus()"></i>
   </div>
-  <div id="loader">
-    Chargement...
-  </div>
-  <div id="container" style="display: none;">
+  <div>
     <section>
       <div class="sun sunrise"></div>
       <div class="hour" id="sunrise-value">-</div>
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
     </section>
     <div class="spacer">
       <hr>
@@ -29,6 +34,11 @@
     <section>
       <div class="sun sunset"></div>
       <div class="hour" id="sunset-value">-</div>
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
     </section>
   </div>
   <i class="settings ion-ios-gear-outline"></i>

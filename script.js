@@ -1,3 +1,5 @@
+var date = new Date(Date.now());
+
 function ready(fn) {
   if (document.readyState != 'loading'){
     fn();
@@ -11,23 +13,55 @@ function formatDate (date) {
   return date.getHours() + ':' + date.getMinutes();
 }
 
-ready(function () {
-  // set today's date
-  var now = new Date(Date.now());
-  var dayName = now.toLocaleDateString("fr-FR", {weekday: "long"});
-  var day = now.toLocaleDateString("fr-FR", {day: "numeric"});
-  var month = now.toLocaleDateString("fr-FR", {month: "long"});
+function plus () {
+  date.setDate(date.getDate() + 1);
+  setHeaderDate();
+  doFetch();
+}
+
+function minus () {
+  date.setDate(date.getDate() - 1);
+  setHeaderDate();
+  doFetch();
+}
+
+function setHeaderDate () {
+  var dayName = date.toLocaleDateString("fr-FR", {weekday: "long"});
+  var day = date.toLocaleDateString("fr-FR", {day: "numeric"});
+  var month = date.toLocaleDateString("fr-FR", {month: "long"});
   document.getElementById('dayName').innerHTML = dayName;
   document.getElementById('day').innerHTML = day;
   document.getElementById('month').innerHTML = month.toLowerCase();
+}
 
-  // get data
-  fetch('http://api.sunrise-sunset.org/json?lat=48.929584&lng=2.046982&date=today&formatted=0').then(function(res) {
-    document.getElementById('loader').style.display = 'none';
-    document.getElementById('container').style.display = '';
+function hideClass (className) {
+  Array.prototype.forEach.call(document.getElementsByClassName(className), function (e) {
+    e.style.display = 'none';
+  });
+}
+
+function showClass (className) {
+  Array.prototype.forEach.call(document.getElementsByClassName(className), function (e) {
+    e.style.display = '';
+  });
+}
+
+function doFetch () {
+  strDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+  showClass('spinner');
+  hideClass('hour');
+  fetch('http://api.sunrise-sunset.org/json?lat=48.929584&lng=2.046982&date=' + strDate + '&formatted=0').then(function(res) {
+    showClass('hour');
+    hideClass('spinner');
     res.json().then(function(data) {
       document.getElementById('sunrise-value').innerHTML = formatDate(data.results.sunrise);
       document.getElementById('sunset-value').innerHTML = formatDate(data.results.sunset);
     });
   });
+}
+
+ready(function () {
+  // set today's date
+  setHeaderDate();
+  doFetch();
 });
