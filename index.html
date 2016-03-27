@@ -6,25 +6,31 @@
   <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Intl.~locale.fr-FR"></script>
   <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
   <div class="header">
     <div class="date">
-      <span class="day">lundi</span> 29 <span class="month">mars</span>
+      <span id="dayName"></span> <span id="day"></span> <span id="month">mars</span>
     </div>
   </div>
-  <section>
-    <div class="sun sunrise"></div>
-    <div class="hour">7:30</div>
-  </section>
-  <div class="spacer">
-    <hr>
+  <div id="loader">
+    Chargement...
   </div>
-  <section>
-    <div class="sun sunset"></div>
-    <div class="hour">18:30</div>
-  </section>
+  <div id="container" style="display: none;">
+    <section>
+      <div class="sun sunrise"></div>
+      <div class="hour" id="sunrise-value">-</div>
+    </section>
+    <div class="spacer">
+      <hr>
+    </div>
+    <section>
+      <div class="sun sunset"></div>
+      <div class="hour" id="sunset-value">-</div>
+    </section>
+  </div>
   <i class="settings ion-ios-gear-outline"></i>
 </body>
 </html>

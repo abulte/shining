@@ -3,6 +3,12 @@ body {
   color: rgba(74,73,74,0.69);
 }
 
+#loader {
+  margin-top: 35vh;
+  width: 100%;
+  text-align: center;
+}
+
 .header {
   background: rgba(215,215,215,0.2);
   height: 12vh;
@@ -13,11 +19,11 @@ body {
   border-bottom: 1px solid rgba(215,215,215,0.8);
 }
 
-.day {
+#dayName {
   font-weight: bold;
 }
 
-.month {
+#month {
   font-size: 18px;
   display: block;
 }
