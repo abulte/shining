@@ -29,6 +29,14 @@ function minus () {
   doFetch();
 }
 
+function closeModal (modal) {
+  document.getElementById(modal).style.display = 'none';
+}
+
+function openModal (modal) {
+  document.getElementById(modal).style.display = '';
+}
+
 function setHeaderDate () {
   var dayName = date.toLocaleDateString(locale, {weekday: "long"});
   var day = date.toLocaleDateString(locale, {day: "numeric"});

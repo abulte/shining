@@ -41,6 +41,22 @@
       </div>
     </section>
   </div>
-  <i class="settings ion-ios-gear-outline"></i>
+  <i class="settings ion-ios-gear-outline" onclick="openModal('settings')"></i>
+  <i class="info ion-ios-information-outline" onclick="openModal('infos')"></i>
+
+  <div class="modal" id="infos" style="display: none;">
+    <div class="infos-container">
+      <p>Built by <a href="http://alexandre.bulte.net">@abulte</a></p>
+      <p>Data by <a href="http://sunrise-sunset.org/api">sunrise-sunset.org</a></p>
+      <p><i class="ion-ios-close-outline close" onclick="closeModal('infos')"></i></p>
+    </div>
+  </div>
+
+  <div class="modal" id="settings" style="display: none;">
+    <div class="settings-container">
+      <p><i class="ion-ios-close-outline close" onclick="closeModal('settings')"></i></p>
+    </div>
+  </div>
+
 </body>
 </html>

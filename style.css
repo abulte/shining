@@ -83,10 +83,39 @@ section {
   border: 1px solid #F5A623;
 }
 
-.settings {
+.settings, .info {
   position: fixed;
-  bottom: 14px;
-  right: 14px;
   font-size: 36px;
   opacity: 0.5;
+  bottom: 14px;
+}
+
+.close {
+  font-size: 36px;
+  opacity: 0.5;
+}
+
+.settings {
+  right: 14px;
+}
+
+.info {
+  left: 14px;
+}
+
+.modal {
+  position: absolute;
+  top: 12vh;
+  height: 88vh;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+}
+
+.infos-container {
+  margin-top: 35vh;
+}
+
+.infos-container > p {
+  margin-bottom: 10px;
 }
