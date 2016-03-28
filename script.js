@@ -1,3 +1,5 @@
+var geoloc = [48.929584, 2.046982];
+
 var locale = (navigator.language || navigator.userLanguage).indexOf('fr') !== -1 ? 'fr-FR' : 'en-US';
 
 var date = new Date(Date.now());
@@ -50,9 +52,10 @@ function showClass (className) {
 
 function doFetch () {
   strDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+  var url = 'http://api.sunrise-sunset.org/json?lat=' + geoloc[0] + '&lng=' + geoloc[1] + '&date=' + strDate + '&formatted=0';
   showClass('spinner');
   hideClass('hour');
-  fetch('http://api.sunrise-sunset.org/json?lat=48.929584&lng=2.046982&date=' + strDate + '&formatted=0').then(function(res) {
+  fetch(url).then(function(res) {
     showClass('hour');
     hideClass('spinner');
     res.json().then(function(data) {
@@ -63,7 +66,20 @@ function doFetch () {
 }
 
 ready(function () {
+  hideClass('hour');
+
   // set today's date
   setHeaderDate();
-  doFetch();
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      geoloc = [position.coords.latitude, position.coords.longitude];
+      doFetch();
+    }, function (err) {
+      console.warn('geoloc error', err);
+      doFetch();
+    }, {enableHighAccuracy: false});
+  } else {
+    doFetch();
+  }
 });
