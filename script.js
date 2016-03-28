@@ -1,3 +1,5 @@
+var locale = (navigator.language || navigator.userLanguage).indexOf('fr') !== -1 ? 'fr-FR' : 'en-US';
+
 var date = new Date(Date.now());
 
 function ready(fn) {
@@ -26,9 +28,9 @@ function minus () {
 }
 
 function setHeaderDate () {
-  var dayName = date.toLocaleDateString("fr-FR", {weekday: "long"});
-  var day = date.toLocaleDateString("fr-FR", {day: "numeric"});
-  var month = date.toLocaleDateString("fr-FR", {month: "long"});
+  var dayName = date.toLocaleDateString(locale, {weekday: "long"});
+  var day = date.toLocaleDateString(locale, {day: "numeric"});
+  var month = date.toLocaleDateString(locale, {month: "long"});
   document.getElementById('dayName').innerHTML = dayName;
   document.getElementById('day').innerHTML = day;
   document.getElementById('month').innerHTML = month.toLowerCase();
